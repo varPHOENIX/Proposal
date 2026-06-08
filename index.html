@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Коммерческое предложение - Дьяченко Артём </title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:            #1C1917;
+  --bg-warm:       #211E1B;
+  --surface:       #292522;
+  --surface2:      #312D2A;
+  --surface3:      #3A3532;
+  --border:        rgba(255,235,210,0.09);
+  --border-med:    rgba(255,235,210,0.16);
+  --border-strong: rgba(255,235,210,0.26);
+  --text:          #F5EDDC;
+  --text-dim:      rgba(245,237,220,0.62);
+  --muted:         rgba(245,237,220,0.35);
+  --accent:        #D97757;
+  --accent-dark:   #C96A48;
+  --accent-light:  #E8936E;
+  --accent-dim:    rgba(217,119,87,0.13);
+  --accent-border: rgba(217,119,87,0.30);
+  --green:         #6BAF86;
+  --green-bg:      rgba(107,175,134,0.10);
+  --green-border:  rgba(107,175,134,0.22);
+  --red:           #E06060;
+  --radius:    18px;
+  --radius-sm: 12px;
+  --radius-xs: 7px;
+  --shadow-xs: 0 1px 4px rgba(0,0,0,0.30);
+  --shadow:    0 4px 20px rgba(0,0,0,0.40);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.50);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.65);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  background-image: radial-gradient(ellipse 130% 55% at 50% -8%, rgba(217,119,87,0.07) 0%, transparent 62%);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400; line-height: 1.65;
+  min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+
+.wrap { max-width: 620px; margin: 0 auto; padding: 0 20px 80px; }
+@media (min-width: 640px) { .wrap { padding: 0 36px 96px; } }
+
+/* AUTHOR BAR */
+.author-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 0; border-bottom: 1px solid var(--border);
+  margin-bottom: 38px; gap: 12px;
+}
+.author-left { display: flex; align-items: center; gap: 11px; }
+.author-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: linear-gradient(140deg, #D97757, #B05A38);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700;
+  color: #fff; flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(217,119,87,0.35);
+  border: 1.5px solid rgba(217,119,87,0.35);
+}
+.author-info-name { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.2; }
+.author-info-role { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.author-wa-mini {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(37,211,102,0.10); border: 1px solid rgba(37,211,102,0.20);
+  color: #4ECB71; font-size: 11.5px; font-weight: 600;
+  padding: 7px 14px; border-radius: 20px; text-decoration: none;
+  transition: background .15s; white-space: nowrap; flex-shrink: 0;
+}
+.author-wa-mini:hover { background: rgba(37,211,102,0.17); }
+.author-wa-mini svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+/* HERO */
+.hero { padding: 8px 0 36px; }
+.tag {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--accent-dim); border: 1px solid var(--accent-border);
+  color: var(--accent-light); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  padding: 5px 13px; border-radius: 20px; margin-bottom: 24px;
+}
+.tag-dot {
+  width: 5px; height: 5px; background: var(--accent); border-radius: 50%;
+  animation: blink 2.2s infinite; flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(217,119,87,0.7);
+}
+@keyframes blink {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:.4; transform:scale(.7); }
+}
+.hero-title {
+  font-family: 'Lora', serif; font-size: clamp(27px, 7.5vw, 42px);
+  font-weight: 600; line-height: 1.17; color: var(--text);
+  margin-bottom: 20px; letter-spacing: -.025em;
+}
+.hero-title em { font-style: italic; color: var(--accent); text-shadow: 0 0 36px rgba(217,119,87,0.35); }
+.hero-sub { font-size: 15.5px; color: var(--text-dim); line-height: 1.78; max-width: 500px; }
+.hero-sub strong { color: var(--text); font-weight: 600; }
+
+/* PROBLEM */
+.problem-block {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 22px;
+  margin: 0 0 28px; box-shadow: var(--shadow-xs);
+}
+.problem-title {
+  font-size: 13px; font-weight: 600; color: var(--text);
+  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}
+.problem-title span { font-size: 15px; }
+.problem-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.problem-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--text-dim); line-height: 1.55;
+}
+.problem-cross {
+  width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px;
+  display: flex; align-items: center; justify-content: center;
+}
+.problem-cross svg { width: 13px; height: 13px; stroke: var(--red); stroke-width: 2.5; }
+
+/* STATS */
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 0 32px; }
+@media (min-width: 480px) { .stats { grid-template-columns: repeat(4,1fr); } }
+.stat {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 16px 14px; box-shadow: var(--shadow-xs);
+}
+.stat-num { font-family: 'Lora', serif; font-size: 22px; font-weight: 600; color: var(--accent); line-height: 1; }
+.stat-label { font-size: 11.5px; color: var(--muted); margin-top: 5px; line-height: 1.4; }
+
+/* SECTION LABEL */
+.section-label {
+  font-size: 11px; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+}
+.section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+/* TARIFF CARDS */
+.tariffs { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px; position: relative;
+  transition: border-color .22s, box-shadow .22s, transform .15s;
+  box-shadow: var(--shadow-xs); overflow: hidden;
+}
+.card:hover { border-color: var(--border-med); box-shadow: var(--shadow); transform: translateY(-1px); }
+.card.featured {
+  background: linear-gradient(155deg, #302A26 0%, #2E2520 100%);
+  border-color: var(--accent-border);
+  box-shadow: 0 0 0 1px var(--accent-border), var(--shadow-md);
+}
+.card.featured:hover { transform: translateY(-2px); }
+
+/* RIBBON — full width top banner, centred, with padding from content */
+.popular-ribbon {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .13em; text-transform: uppercase;
+  padding: 9px 24px;
+  margin: -24px -24px 22px -24px;
+  white-space: nowrap;
+}
+
+.card-top {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 12px; margin-bottom: 18px;
+}
+.tariff-name { font-family: 'Lora', serif; font-size: 19px; font-weight: 600; color: var(--text); }
+.tariff-desc { font-size: 12.5px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+.price-block { text-align: right; flex-shrink: 0; }
+.price { font-family: 'Lora', serif; font-size: 22px; font-weight: 600; color: var(--text); line-height: 1; }
+.card.featured .price { color: var(--accent-light); }
+.price-note { font-size: 11px; color: var(--muted); margin-top: 3px; }
+.price-economy { font-size: 11px; color: var(--green); margin-top: 3px; font-weight: 500; }
+
+.divider { height: 1px; background: var(--border); margin-bottom: 18px; }
+.features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.features li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--text-dim); line-height: 1.55;
+}
+.feat-icon { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; }
+.feat-icon svg { width: 14px; height: 14px; }
+.check svg { stroke: var(--green); stroke-width: 2.2; }
+.card.featured .check svg { stroke: var(--accent-light); }
+
+.badge-new {
+  display: inline-block; background: var(--green-bg); border: 1px solid var(--green-border);
+  color: var(--green); font-size: 10px; padding: 1px 7px; border-radius: 4px;
+  margin-left: 5px; font-weight: 600; vertical-align: middle;
+}
+.badge-hot {
+  display: inline-block; background: var(--accent-dim); border: 1px solid var(--accent-border);
+  color: var(--accent-light); font-size: 10px; padding: 1px 7px; border-radius: 4px;
+  margin-left: 5px; font-weight: 600; vertical-align: middle;
+}
+
+/* TIMELINE */
+.timeline {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px; margin-bottom: 28px; box-shadow: var(--shadow-xs);
+}
+.block-title { font-family: 'Lora', serif; font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 22px; }
+.steps { list-style: none; display: flex; flex-direction: column; }
+.step { display: flex; gap: 15px; position: relative; }
+.step:not(:last-child)::before {
+  content:''; position: absolute; left: 13px; top: 30px; bottom: -6px;
+  width: 1px; background: var(--border);
+}
+.step-num {
+  width: 28px; height: 28px; flex-shrink: 0;
+  background: var(--accent-dim); border: 1.5px solid var(--accent-border);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-family: 'Lora', serif; font-size: 12px; font-weight: 600; color: var(--accent); z-index: 1;
+}
+.step-body { padding-bottom: 22px; flex: 1; }
+.step:last-child .step-body { padding-bottom: 0; }
+.step-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+.step-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+/* WHY */
+.why {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px; margin-bottom: 28px; box-shadow: var(--shadow-xs);
+}
+.why-title { font-family: 'Lora', serif; font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 20px; }
+.why-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+.why-item { display: flex; gap: 14px; align-items: flex-start; }
+.why-icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 18px;
+}
+.why-text { font-size: 14px; color: var(--text-dim); line-height: 1.65; }
+.why-text strong { color: var(--text); display: block; margin-bottom: 3px; font-weight: 600; }
+
+/* COMPARISON */
+.comparison {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px; margin-bottom: 28px; overflow-x: auto; box-shadow: var(--shadow-xs);
+}
+.comparison-title { font-family: 'Lora', serif; font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 18px; }
+.comp-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 310px; }
+.comp-table th {
+  text-align: left; padding: 8px 10px; color: var(--muted);
+  font-weight: 600; font-size: 11px; text-transform: uppercase;
+  letter-spacing: .07em; border-bottom: 1px solid var(--border);
+}
+.comp-table th.accent-col { color: var(--accent-light); }
+.comp-table td { padding: 10px; border-bottom: 1px solid var(--border); color: var(--text-dim); line-height: 1.4; vertical-align: middle; }
+.comp-table tr:last-child td { border-bottom: none; }
+.comp-table td:first-child { color: var(--muted); font-size: 12.5px; }
+.comp-yes { color: var(--green); font-weight: 600; }
+.comp-no  { color: var(--muted); }
+.comp-accent { color: var(--accent-light); font-weight: 500; }
+
+/* GUARANTEE */
+.guarantee {
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(217,119,87,0.06) 100%);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius); padding: 22px 24px;
+  margin-bottom: 28px; display: flex; gap: 15px; align-items: flex-start; box-shadow: var(--shadow-xs);
+}
+.guarantee-icon { font-size: 28px; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+.guarantee-title { font-family: 'Lora', serif; font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 7px; }
+.guarantee-text { font-size: 13.5px; color: var(--text-dim); line-height: 1.65; }
+
+/* REVIEWS */
+.reviews { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+@media (min-width: 480px) {
+  .reviews { display: grid; grid-template-columns: 1fr 1fr; }
+  .review-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+.review-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 18px; box-shadow: var(--shadow-xs);
+}
+.review-head { display: flex; align-items: center; gap: 10px; margin-bottom: 11px; }
+.review-avatar {
+  width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; font-family: 'DM Sans', sans-serif;
+}
+.review-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.review-biz  { font-size: 11px; color: var(--muted); margin-top: 1px; }
+.review-stars { margin-left: auto; color: var(--accent); font-size: 12px; letter-spacing: 1px; }
+.review-text { font-size: 13px; color: var(--text-dim); line-height: 1.65; font-style: italic; }
+
+/* FAQ */
+.faq {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px; margin-bottom: 28px; box-shadow: var(--shadow-xs);
+}
+.faq-title { font-family: 'Lora', serif; font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 18px; }
+.faq-list { list-style: none; display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid var(--border); padding: 15px 0; }
+.faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+.faq-item:first-child { padding-top: 0; }
+.faq-q {
+  font-size: 14px; font-weight: 600; color: var(--text);
+  margin-bottom: 7px; display: flex; align-items: flex-start; gap: 9px;
+}
+.faq-q::before {
+  content: 'Q'; font-family: 'DM Sans', sans-serif;
+  font-size: 10px; font-weight: 700; color: var(--accent-light);
+  background: var(--accent-dim); border: 1px solid var(--accent-border);
+  padding: 2px 6px; border-radius: 5px; flex-shrink: 0; margin-top: 2px;
+}
+.faq-a { font-size: 13.5px; color: var(--muted); line-height: 1.65; padding-left: 28px; }
+
+/* CTA */
+.cta-block {
+  background: linear-gradient(150deg, #2B2420 0%, #261E18 100%);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius); padding: 34px 24px;
+  text-align: center; margin-bottom: 32px;
+  box-shadow: var(--shadow-md), 0 0 60px rgba(217,119,87,0.08);
+}
+.cta-emoji { font-size: 34px; margin-bottom: 12px; }
+.cta-heading { font-family: 'Lora', serif; font-size: 21px; font-weight: 600; color: var(--text); line-height: 1.28; margin-bottom: 10px; }
+.cta-hint {
+  font-size: 14.5px; color: var(--text-dim); line-height: 1.72;
+  margin-bottom: 26px; max-width: 430px; margin-left: auto; margin-right: auto;
+}
+.wa-btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: #25883A; color: #fff;
+  font-family: 'DM Sans', sans-serif; font-size: 14.5px; font-weight: 600;
+  text-decoration: none; border-radius: var(--radius-sm);
+  padding: 17px 30px; width: 100%;
+  transition: background .15s, transform .1s, box-shadow .15s;
+  box-shadow: 0 4px 20px rgba(37,136,58,0.30);
+  max-width: 370px; margin: 0 auto;
+}
+.wa-btn:hover { background: #1f7430; transform: translateY(-1px); box-shadow: 0 6px 26px rgba(37,136,58,0.42); }
+.wa-btn:active { transform: scale(0.98); }
+.wa-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+.wa-fine {
+  font-size: 12px; color: var(--muted); margin-top: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+}
+.wa-fine::before {
+  content:''; display:inline-block; width:6px; height:6px;
+  background:#25883A; border-radius:50%; animation:blink 2.2s infinite;
+}
+
+/* CONTACTS */
+.contact-row { display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap; }
+.contact-pill {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 20px; padding: 9px 16px;
+  font-size: 13px; color: var(--text-dim); text-decoration: none;
+  transition: border-color .15s, color .15s; box-shadow: var(--shadow-xs);
+}
+.contact-pill:hover { border-color: var(--border-med); color: var(--text); }
+.contact-pill svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* FOOTER */
+.footer { padding-top: 24px; border-top: 1px solid var(--border); text-align: center; font-size: 12px; color: var(--muted); line-height: 1.8; }
+.footer-brand { font-family: 'Lora', serif; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 5px; }
+
+/* RESPONSIVE */
+@media (max-width: 400px) {
+  .hero-title { font-size: 23px; }
+  .card { padding: 18px; }
+  .popular-ribbon { margin: -18px -18px 18px -18px; }
+  .price { font-size: 19px; }
+  .cta-block { padding: 24px 16px; }
+  .author-wa-mini { font-size: 10.5px; padding: 6px 11px; }
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.hero          { animation: fadeUp .55s ease both; }
+.problem-block { animation: fadeUp .55s ease both .04s; }
+.stats         { animation: fadeUp .55s ease both .08s; }
+.tariffs       { animation: fadeUp .55s ease both .12s; }
+.timeline      { animation: fadeUp .55s ease both .16s; }
+.why           { animation: fadeUp .55s ease both .18s; }
+.comparison    { animation: fadeUp .55s ease both .20s; }
+.guarantee     { animation: fadeUp .55s ease both .22s; }
+.reviews       { animation: fadeUp .55s ease both .24s; }
+.faq           { animation: fadeUp .55s ease both .26s; }
+.cta-block     { animation: fadeUp .55s ease both .30s; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- AUTHOR BAR -->
+  <div class="author-bar">
+    <div class="author-left">
+      <div class="author-avatar">ДА</div>
+      <div>
+        <div class="author-info-name">Дьяченко Артём</div>
+        <div class="author-info-role">Разработчик сайтов · Алматы</div>
+      </div>
+    </div>
+    <a class="author-wa-mini" href="https://wa.me/77757124278" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Написать
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="tag"><span class="tag-dot"></span>Предложение</div>
+    <h1 class="hero-title">Сайт, который<br><em>работает</em> за вас</h1>
+    <p class="hero-sub">
+      Каждый день кто-то гуглит «кафе рядом», «доставка еды Алматы», «где поесть рядом» — и уходит к тем, у кого есть сайт. <strong>Я делаю сайты для ресторанов и кафе, которые приводят гостей сами — без агрегаторов, без комиссий, без лишних усилий с вашей стороны.</strong>
+    </p>
+  </div>
+
+  <!-- PROBLEM BLOCK -->
+  <div class="problem-block">
+    <div class="problem-title"><span>⚠️</span> Три причины, почему вы теряете деньги прямо сейчас</div>
+    <ul class="problem-list">
+      <li class="problem-item">
+        <span class="problem-cross"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></span>
+        <span>Glovo и Яндекс Еда забирают <strong style="color:var(--text)">25–35% с каждого заказа.</strong> Продали на 10 000 ₸ — 3 000 ушло агрегатору. Это не партнёрство, это аренда ваших же клиентов.</span>
+      </li>
+      <li class="problem-item">
+        <span class="problem-cross"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></span>
+        <span>В Instagram меню не читается, цены нужно искать в Stories или комментариях. Половина гостей закрывает страницу и идёт туда, где всё понятно за 10 секунд.</span>
+      </li>
+      <li class="problem-item">
+        <span class="problem-cross"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></span>
+        <span>Без сайта вас нет в Google. В 22:00 кто-то ищет «доставка еды Алматы» — и находит ваших конкурентов, а не вас.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat"><div class="stat-num">+37%</div><div class="stat-label">прямых заказов у ресторанов с сайтом</div></div>
+    <div class="stat"><div class="stat-num">0 ₸</div><div class="stat-label">комиссии — заказы идут напрямую вам</div></div>
+    <div class="stat"><div class="stat-num">1 день</div><div class="stat-label">минимальный срок запуска</div></div>
+    <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">сайт работает пока вы отдыхаете</div></div>
+  </div>
+
+  <!-- ТАРИФЫ -->
+  <p class="section-label">Выберите пакет</p>
+  <div class="tariffs">
+
+    <!-- СТАРТ -->
+    <div class="card">
+      <div class="card-top">
+        <div>
+          <div class="tariff-name">Старт</div>
+          <div class="tariff-desc">Быстрый запуск</div>
+        </div>
+        <div class="price-block">
+          <div class="price">88 000 ₸</div>
+          <div class="price-note">1–2 дня</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <ul class="features">
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>Одностраничный сайт: меню, фото, адрес, режим работы</li>
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>Кнопка WhatsApp — клиент нажимает и сразу пишет вам</li>
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>Ссылки на 2ГИС — всё в одном месте</li>
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>Адаптив — одинаково красиво на телефоне и компьютере</li>
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>Всё заполняю сам — вы только скидываете необходимую информацию</li>
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>Домен и хостинг выбираете сами, помогу с выбором</li>
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>1 раунд правок · Срок: 1–2 дня с момента оплаты</li>
+      </ul>
+    </div>
+
+    <!-- БИЗНЕС -->
+    <div class="card featured">
+      <div class="popular-ribbon">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;opacity:.85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Чаще выбирают
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;opacity:.85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="card-top">
+        <div>
+          <div class="tariff-name">Бизнес</div>
+          <div class="tariff-desc">Сайт под ключ — публикую и настраиваю сам</div>
+        </div>
+        <div class="price-block">
+          <div class="price">147 000 ₸</div>
+          <div class="price-note">3 и более дней</div>
+          <div class="price-economy">≈ окупается за 20 заказов</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <ul class="features">
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>Одностраничный сайт с полным наполнением под ваш ресторан</li>
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>Публикую онлайн сам — сразу вставляете ссылку в Instagram и 2ГИС</li>
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>Форма бронирования стола / онлайн-заказа <span class="badge-hot">Популярно</span></li>
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>Базовое SEO — появляетесь в Google по запросам вашего района</li>
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>Настройка домена и хостинга под сайт</li>
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>3 раунда правок + поддержка 2 недели </li>
+      </ul>
+    </div>
+
+    <!-- ПРЕМИУМ -->
+    <div class="card">
+      <div class="card-top">
+        <div>
+          <div class="tariff-name">Премиум</div>
+          <div class="tariff-desc">Полностью под ключ — от домена до аналитики</div>
+        </div>
+        <div class="price-block">
+          <div class="price">232 000 ₸</div>
+          <div class="price-note">7 и более дней</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <ul class="features">
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>Многостраничный сайт: главная, меню, о нас, контакты</li>
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>Публикую онлайн + домен kz и хостинг на год <span class="badge-new">включено</span></li>
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>Форма бронирования стола и онлайн-заказа</li>
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>SEO и регистрация в Google Maps и 2ГИС — находят по геолокации</li>
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>Аналитика посещений — видите откуда приходят и что смотрят</li>
+        <li><span class="feat-icon check"><svg viewBox="0 0 14 14" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span>5 правок + поддержка 1 месяц + обучение по обновлению контента</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- КАК МЫ РАБОТАЕМ -->
+  <p class="section-label">Как это работает</p>
+  <div class="timeline">
+    <div class="block-title">От первого сообщения до живого сайта</div>
+    <ul class="steps">
+      <li class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Вы пишете — я отвечаю в течение часа</div>
+          <div class="step-desc">Скажите какой тариф интересует. Обсудим детали, я уточню что нужно для работы. Никаких долгих согласований.</div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Вы скидываете материалы</div>
+          <div class="step-desc">Все что понадобится для нашего с вами сотрудничества. Нет профессиональных фото? Помогу подобрать или найти.</div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Довожу сайт до идеала и согласовываюсь с вами</div>
+          <div class="step-desc">Дизайн, тексты, вёрстка, SEO. Прежде чем публиковать, показываю вам готовый вариант. Говорите что поправить — правлю.</div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Публикую — и сайт начинает работать</div>
+          <div class="step-desc">Вы получаете ссылку, вставляете в Instagram, 2ГИС, на визитки. С этого момента ваш сайт уже работает.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ПОЧЕМУ ОКУПАЕТСЯ -->
+  <div class="why">
+    <div class="why-title">Почему сайт окупается быстро</div>
+    <ul class="why-list">
+      <li class="why-item">
+        <div class="why-icon">💸</div>
+        <div class="why-text">
+          <strong>Каждый прямой заказ — это +30% к вашей марже</strong>
+          Если вы сейчас отдаёте треть Glovo, то после запуска сайта эти деньги остаются у вас. 50 заказов в месяц через сайт — это уже около 150 000 ₸ сэкономленной комиссии.
+        </div>
+      </li>
+      <li class="why-item">
+        <div class="why-icon">⚡</div>
+        <div class="why-text">
+          <strong>Окупается за 15–20 новых гостей</strong>
+          Средний чек в кафе Алматы — 8 000 ₸. Приведите 15–20 человек, которых раньше не было — и «Бизнес» уже в плюсе. Всё остальное сверху — ваш чистый доход.
+        </div>
+      </li>
+      <li class="why-item">
+        <div class="why-icon">🏆</div>
+        <div class="why-text">
+          <strong>Вы выглядите серьёзнее, чем конкурент без сайта</strong>
+          Два одинаковых кафе рядом. Один открывается в браузере за 3 секунды — меню, фото, кнопка брони. Другой — только Instagram. Клиент всегда выбирает первый.
+        </div>
+      </li>
+      <li class="why-item">
+        <div class="why-icon">📲</div>
+        <div class="why-text">
+          <strong>Работает, пока вы заняты </strong>
+          Закрыты? Заняты? Не важно — сайт сам показывает меню, отвечает на «как доехать» и принимает заявки на бронирование. Вы не теряете ни одного гостя.
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- СРАВНЕНИЕ -->
+  <div class="comparison">
+    <div class="comparison-title">Сайт vs Instagram vs Glovo</div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Что важно</th>
+          <th class="accent-col">Сайт</th>
+          <th>Instagram</th>
+          <th>Glovo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Комиссия с заказа</td><td class="comp-yes">0%</td><td class="comp-yes">0%</td><td class="comp-no">25–35%</td></tr>
+        <tr><td>Меню с ценами</td><td class="comp-yes">✓</td><td class="comp-no">Нет</td><td class="comp-yes">✓</td></tr>
+        <tr><td>Виден в Google</td><td class="comp-yes">✓</td><td class="comp-no">Слабо</td><td class="comp-yes">✓</td></tr>
+        <tr><td>Ваш бренд, не платформы</td><td class="comp-yes">✓</td><td class="comp-accent">частично</td><td class="comp-no">Нет</td></tr>
+        <tr><td>Бронирование стола</td><td class="comp-yes">✓</td><td class="comp-no">Нет</td><td class="comp-no">Нет</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ГАРАНТИЯ -->
+  <div class="guarantee">
+    <div class="guarantee-icon">🤝</div>
+    <div>
+      <div class="guarantee-title">Как я работаю:</div>
+      <div class="guarantee-text">Вы видите сайт до публикации. Если что-то не нравится, говорите и я правлю. Сдаю работу только когда вы сами  её принимаете. Оплата 50/50: половина в начале, вторая половина в конце</div>
+    </div>
+  </div>
+
+  <!-- ОТЗЫВЫ -->
+  <p class="section-label">Клиенты говорят</p>
+  <div class="reviews">
+    <div class="review-card">
+      <div class="review-head">
+        <div class="review-avatar" style="background:rgba(217,119,87,0.15);color:#D97757;">АС</div>
+        <div>
+          <div class="review-name">Айгуль С.</div>
+          <div class="review-biz">Кафе, Алматы</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <div class="review-text">«Сделали сайт за 2 дня, я только скинула фото и меню. Через неделю пошли первые прямые заказы из Google. Сейчас через Glovo делаем минимум — основной поток идёт напрямую.»</div>
+    </div>
+    <div class="review-card">
+      <div class="review-head">
+        <div class="review-avatar" style="background:rgba(107,175,134,0.15);color:#6BAF86;">МА</div>
+        <div>
+          <div class="review-name">Марат А.</div>
+          <div class="review-biz">Пиццерия, Алматы</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <div class="review-text">«Думал — это долго и дорого. Взял «Бизнес», вставил ссылку в шапку Instagram. За первый месяц пришло больше 40 новых бронирований прямо через сайт.»</div>
+    </div>
+    <div class="review-card">
+      <div class="review-head">
+        <div class="review-avatar" style="background:rgba(180,120,90,0.15);color:#C07050;">ДК</div>
+        <div>
+          <div class="review-name">Динара К.</div>
+          <div class="review-biz">Ресторан, Алматы</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <div class="review-text">«Взяла Премиум — получила домен, QR-коды на столики и аналитику. Теперь чётко вижу откуда приходят гости и какие блюда смотрят чаще. Очень довольна результатом.»</div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq">
+    <div class="faq-title">Частые вопросы</div>
+    <ul class="faq-list">
+      <li class="faq-item">
+        <div class="faq-q">Нужно ли разбираться в сайтах или технологиях?</div>
+        <div class="faq-a">Совсем нет. Вы скидываете фото и меню в WhatsApp — я делаю всё остальное. После сдачи покажу как поменять цены или добавить блюдо самостоятельно.</div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">У меня нет нормальных фото блюд — это проблема?</div>
+        <div class="faq-a">Не проблема. Помогу подобрать красивые стоковые фото в стиле вашей кухни или объясню как снять на телефон чтобы вышло хорошо. Сайт будет выглядеть достойно в любом случае.</div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">Как происходит оплата?</div>
+        <div class="faq-a">50% предоплата в начале, 50% после того как вы приняли работу и сказали «всё окей». Принимаю через Kaspi, на карту или наличными.</div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">Что если сайт не понравится?</div>
+        <div class="faq-a">Если что-то не нравится, говорите и я правлю в рамках включённых раундов правок. Публикую только с вашего «да».</div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">Сколько стоит поддержка после сдачи?</div>
+        <div class="faq-a">В «Бизнесе» поддержка уже включена на 2 недели, в «Премиуме» — на месяц. После этого — по договорённости.</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-emoji">🚀</div>
+    <div class="cta-heading">Пока вы читаете это —<br>ваши конкуренты уже зарабатывают</div>
+    <p class="cta-hint">Напишите мне, скажите какой тариф интересует и у вас будет сайт, который работает на вас сам. Давайте начнем.</p>
+    <a class="wa-btn" href="https://wa.me/77757124278?text=Здравствуйте!%20Хочу%20сайт.%20Интересует%20тариф%20" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Написать в WhatsApp
+    </a>
+    <p class="wa-fine">Онлайн · Отвечаю в течение часа </p>
+  </div>
+
+  <!-- CONTACTS -->
+  <div class="contact-row">
+    <a href="https://wa.me/77757124278" class="contact-pill" target="_blank">
+      <svg viewBox="0 0 24 24" fill="#4ECB71"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      +7 775 712 4278
+    </a>
+    <!-- <a href="https://instagram.com/yourhandle" class="contact-pill" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+      @yourhandle
+    </a> -->
+    <a href="mailto:your@email.kz" class="contact-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+      varphoenixdesign@gmail.com
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">Дьяченко Артём · Веб-разработка</div>
+    Алматы · Работаю по всему Казахстану<br>
+    © 2026 Все права защищены
+  </div>
+
+</div>
+</body>
+</html>
